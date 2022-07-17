@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.calendarapp.model.DeleteTaskRequestModel
-import com.example.calendarapp.model.RequestBody
+import com.example.calendarapp.model.GetTasksRequestBody
 import com.example.calendarapp.model.TasksResponseModel
 import com.example.calendarapp.repository.TaskRepository
 import com.example.calendarapp.util.Constants
@@ -25,7 +25,7 @@ class AllTasksViewModel(
 
     private fun getTasksList() = viewModelScope.launch {
         taskList.postValue(Resource.Loading())
-        val response = repo.getTask(RequestBody(Constants.USER_ID))
+        val response = repo.getTask(GetTasksRequestBody(Constants.USER_ID))
         taskList.postValue(handleResponse(response))
     }
 

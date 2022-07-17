@@ -7,7 +7,7 @@ import retrofit2.http.POST
 
 interface TaskApi {
     @POST("/api/getCalendarTaskLists")
-    suspend fun getTaskList(@Body requestBody: RequestBody): Response<TasksResponseModel>
+    suspend fun getTaskList(@Body getTasksRequestBody: GetTasksRequestBody): Response<TasksResponseModel>
 
     @POST("/api/storeCalendarTask")
     suspend fun addTask(@Body addTaskRequestModel: AddTaskRequestModel)
